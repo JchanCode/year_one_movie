@@ -23,6 +23,11 @@ when input is empty / "please enter a movie name"
         //   };
 
 
+
+
+
+
+        //-----------------------Need to look for a new api , curr api picture is shit
 function Searchbar () {
     const { setSearchResult, setIsLoading } = useContext(YearOneContext)
     const [barOpened, setBarOpened] = useState();
@@ -35,18 +40,21 @@ function Searchbar () {
 
     const handleSubmit = async(e)=> {
         e.preventDefault();
+        setSearchResult(null);
         setIsLoading(true);
+
+
         const byName = {
             method: 'GET',
-            url: `https://series-movies-imdb.p.rapidapi.com/movie/search/${searchData}`,
+            url: `https://imdb-internet-movie-database-unofficial.p.rapidapi.com/search/${searchData}`,
             headers: {
               'x-rapidapi-key': '36921ab046msh613fb88a1c6a7ccp1f8164jsnef4c99397fc8',
-              'x-rapidapi-host': 'series-movies-imdb.p.rapidapi.com'
+              'x-rapidapi-host': 'imdb-internet-movie-database-unofficial.p.rapidapi.com'
             }
-        };
+          };
         const { data } = await axios.request(byName);
         console.log(data)
-        setSearchResult(data);
+        setSearchResult(data.titles);
         setIsLoading(false);
     };
 

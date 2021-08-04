@@ -17,12 +17,14 @@ function ResultBox () {
     return (
         <>        
             { isLoading && <Loader /> }
-            { searchResults && searchResults.map(r=>(
-                <ResultCard key={uuidv4()} 
-                            movieId={r.movieid} 
-                            poster={r.moviePosterUrl}
-                            title={r.movieTitle}  />
-            ))}
+            <div>
+                { searchResults && searchResults.map(r=>(
+                    <ResultCard key={uuidv4()} 
+                                movieId={r.id} 
+                                posterUrl={r.image}
+                                title={r.title}  />
+                ))}               
+            </div>
         </>
 
     )

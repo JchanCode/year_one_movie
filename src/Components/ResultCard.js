@@ -2,14 +2,24 @@ import React from 'react'
 import styled from "styled-components";
 
 
-const ResultCard = ({movieId, poster, title}) => { 
+const Poster = styled.img`
+    height: 300px;
+    border-radius: 7px;
+`
+
+
+
+//set default img "no pic"
+const ResultCard = ({movieId, posterUrl, title}) => { 
  
     
 
     return (
         <div>
-            <p>{title}</p>
-            <img src={poster} alt="poster"/>
+            <a href="#"> 
+                <Poster src={posterUrl} alt="poster"/>                
+                <p>{title}</p>
+            </a>
         </div>
     )
 }

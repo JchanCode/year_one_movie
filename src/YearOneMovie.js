@@ -1,5 +1,6 @@
-import React, { useState } from "react"
-import YearOneContext from "./Context/YearOneContext"
+import React, { useState } from "react";
+import { Route } from "react-router-dom";
+import YearOneContext from "./Context/YearOneContext";
 import Searchbar from './Components/Searchbar';
 import ResultBox from "./Components/ResultBox";
 
@@ -17,8 +18,10 @@ const YearOneMove = () => {
 
     return (
         <YearOneContext.Provider value={{searchResults, setSearchResult, isLoading, setIsLoading}}>
-            <Searchbar/>
-            <ResultBox />                                             
+            <Searchbar/>            
+            <Route>
+                <ResultBox />                   
+            </Route>      
         </YearOneContext.Provider>
     )
 }
